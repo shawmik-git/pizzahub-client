@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --crust: 251 240 220; --char: 42 25 18;
+  --background: 251 240 220; --foreground: 42 25 18;
+  --card: 255 255 255; --card-foreground: 42 25 18;
+  --popover: 255 255 255; --popover-foreground: 42 25 18;
+  --primary: 194 55 31; --primary-foreground: 255 255 255;
+  --secondary: 245 233 214; --secondary-foreground: 42 25 18;
+  --muted: 245 233 214; --muted-foreground: 115 100 90;
+  --accent: 245 233 214; --accent-foreground: 42 25 18;
+  --destructive: 185 28 28;
+  --border: 226 214 196; --input: 226 214 196; --ring: 194 55 31;
+}
+.dark {
+  --crust: 27 18 13; --char: 245 233 214;
+  --background: 27 18 13; --foreground: 245 233 214;
+  --card: 43 29 21; --card-foreground: 245 233 214;
+  --popover: 43 29 21; --popover-foreground: 245 233 214;
+  --primary: 194 55 31; --primary-foreground: 255 255 255;
+  --secondary: 58 40 30; --secondary-foreground: 245 233 214;
+  --muted: 58 40 30; --muted-foreground: 180 165 150;
+  --accent: 58 40 30; --accent-foreground: 245 233 214;
+  --destructive: 220 80 80;
+  --border: 70 52 40; --input: 70 52 40; --ring: 229 122 31;
+}
+.dark .card, .dark .input, .dark .bg-white { background-color: #2B1D15; }
+.dark .btn-dark { background-color: #F5E9D6; color: #1B120D; }
+.dark .btn-dark:hover { background-color: #fff; }
+body { @apply bg-crust text-char antialiased; }
+h1, h2, h3, h4 { font-family: "Bricolage Grotesque", Georgia, serif; @apply tracking-tight; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tomato disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-primary { @apply bg-tomato text-white hover:bg-[#a52d18]; }
+  .btn-ghost { @apply border border-char/20 text-char hover:bg-char/5; }
+  .btn-dark { @apply bg-char text-white hover:bg-black; }
+  .input { @apply w-full rounded-xl border border-char/20 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-tomato focus:ring-2 focus:ring-tomato/20; }
+  .card { @apply rounded-2xl border border-char/10 bg-white; }
+  .container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+  .h-section { @apply text-3xl font-bold sm:text-4xl; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
